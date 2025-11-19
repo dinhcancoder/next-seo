@@ -8,9 +8,16 @@
     "start": "next start"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.90.6",
+    "@tanstack/react-query-devtools": "^5.90.2",
+    "axios": "^1.13.2",
+    "chance": "^1.1.13",
+    "date-fns": "^4.1.0",
+    "lodash": "^4.17.21",
+    "mongoose": "^8.19.2",
+    "next": "15.5.6",
     "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.5.6"
+    "react-dom": "19.1.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
