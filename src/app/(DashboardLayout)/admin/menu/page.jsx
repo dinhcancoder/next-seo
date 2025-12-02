@@ -58,10 +58,22 @@ export default function HeaderPage() {
   // 🧩 Tự động tạo slug khi nhập label
   const handleLabelChange = (e) => {
     const value = e.target.value
-    const slug = value
+
+    // Remove dấu tiếng Việt
+    const normalized = value
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '') // xoá dấu
+      .replace(/đ/g, 'd')
+      .replace(/Đ/g, 'D')
+
+    // Tạo slug
+    const slug = normalized
       .toLowerCase()
-      .replace(/\s+/g, '-')
-      .replace(/[^a-z0-9-]/g, '')
+      .trim()
+      .replace(/\s+/g, '-') // đổi khoảng trắng thành dấu -
+      .replace(/[^a-z0-9-]/g, '') // xoá ký tự không hợp lệ
+      .replace(/-+/g, '-') // tránh 2 dấu -- liền nhau
+      .replace(/^-+|-+$/g, '') // xoá - ở đầu và cuối
 
     setValue('label', value)
     setValue('slug', slug)
