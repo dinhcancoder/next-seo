@@ -9,15 +9,13 @@ export default function MenuItem({ item, level }) {
 
   return (
     <div
-      className="relative group"
+      className="group relative"
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
     >
       {/* LABEL + ICON */}
       <div
-        className={`cursor-pointer px-3 py-2 font-medium flex items-center gap-1 hover:text-blue-600
-          ${level === 0 ? 'text-gray-800' : 'text-gray-700'}
-        `}
+        className={`flex cursor-pointer items-center gap-1 px-3 py-2 hover:text-blue-600 ${level === 0 ? 'text-gray-800' : 'text-gray-700'} `}
       >
         <Link href={item.url ?? '#'}>{item.label}</Link>
 
@@ -43,12 +41,7 @@ export default function MenuItem({ item, level }) {
       {/* SUBMENU */}
       {hasChildren && (
         <div
-          className={`
-            absolute bg-white shadow-lg border rounded-lg min-w-[200px] z-50
-            transition-all duration-150
-            ${level === 0 ? 'top-full left-0' : 'top-0 left-full'}
-            ${open ? 'opacity-100 visible' : 'opacity-0 invisible'}
-          `}
+          className={`absolute z-50 min-w-[200px] rounded-lg border bg-white shadow-lg transition-all duration-150 ${level === 0 ? 'top-full left-0' : 'top-0 left-full'} ${open ? 'visible opacity-100' : 'invisible opacity-0'} `}
         >
           <ul className="py-2">
             {item.children.map((child) => (

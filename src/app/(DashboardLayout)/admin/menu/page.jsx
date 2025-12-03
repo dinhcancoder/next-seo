@@ -28,7 +28,7 @@ import { useForm } from 'react-hook-form'
 import { useState } from 'react'
 import { buildMenuTree, flattenMenu } from '~/utils/flattenMenu'
 
-export default function HeaderPage() {
+export default function MenuPage() {
   const [isOpen, setIsOpen] = useState(false)
 
   const { data: menuList = [] } = useMenuQuery()
@@ -116,7 +116,7 @@ export default function HeaderPage() {
               onChange={handleLabelChange}
             />
             {errors.label && (
-              <p className="text-red-500 text-sm">{errors.label.message}</p>
+              <p className="text-sm text-red-500">{errors.label.message}</p>
             )}
           </div>
 
@@ -125,7 +125,7 @@ export default function HeaderPage() {
             <Label htmlFor="slug">Slug</Label>
             <Input id="slug" placeholder="iphone-12" {...register('slug')} />
             {errors.slug && (
-              <p className="text-red-500 text-sm">{errors.slug.message}</p>
+              <p className="text-sm text-red-500">{errors.slug.message}</p>
             )}
           </div>
 
@@ -154,7 +154,7 @@ export default function HeaderPage() {
             </Select>
 
             {errors.parent && (
-              <p className="text-red-500 text-sm">{errors.parent.message}</p>
+              <p className="text-sm text-red-500">{errors.parent.message}</p>
             )}
           </div>
 
