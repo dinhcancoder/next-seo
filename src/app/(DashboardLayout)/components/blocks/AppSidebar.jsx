@@ -1,13 +1,6 @@
 'use client'
 
-import {
-  ChevronDown,
-  Home,
-  Inbox,
-  Info,
-  Settings,
-  UsersRound,
-} from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import {
   Collapsible,
@@ -27,53 +20,7 @@ import {
   SidebarMenuSub,
   SidebarMenuSubItem,
 } from '~/components/ui/sidebar'
-
-// Menu items.
-const menuGroups = [
-  {
-    group: 'Thiết lập chung',
-    items: [
-      {
-        title: 'Dashboard',
-        url: '/admin/dashboard',
-        icon: Home,
-        children: null,
-      },
-      {
-        title: 'Trang chủ',
-        url: '#',
-        icon: Inbox,
-        children: [
-          { title: 'Giới thiệu chung', url: '/admin/info' },
-          { title: 'Slider nổi bật', url: '/admin/slider' },
-          { title: 'Ý kiến khách hàng', url: '/admin/customer-comment' },
-        ],
-      },
-      {
-        title: 'Cài đặt',
-        url: '#',
-        icon: Settings,
-        children: [{ title: 'Menu', url: '/admin/menu' }],
-      },
-    ],
-  },
-  {
-    group: 'Thông tin',
-    items: [
-      {
-        title: 'Đăng ký',
-        url: '/admin/register',
-        icon: UsersRound,
-      },
-      {
-        title: 'Thông tin công ty',
-        url: '/admin/company-info',
-        icon: Info,
-        children: null,
-      },
-    ],
-  },
-]
+import { menuGroups } from '../../configs/menu'
 
 export function AppSidebar() {
   const pathname = usePathname()
