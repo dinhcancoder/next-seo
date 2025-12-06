@@ -26,13 +26,13 @@ export default function HeaderClient({ menu }) {
   }, [])
 
   return (
-    <header className="w-full bg-white shadow-sm">
-      <div className="mx-auto flex items-center justify-between container py-2 max-lg:px-3">
+    <header className="flex h-[65px] w-full items-center bg-white shadow-sm md:h-[75px]">
+      <div className="container mx-auto flex items-center justify-between py-2 max-lg:px-3">
         {/* Logo */}
         <Logo />
 
         {/* Desktop Menu */}
-        <nav className="hidden lg:flex gap-6">
+        <nav className="hidden gap-6 lg:flex">
           {menu.map((item) => (
             <MenuItem key={item._id} item={item} level={0} />
           ))}
@@ -42,26 +42,22 @@ export default function HeaderClient({ menu }) {
         <HeaderRight />
 
         {/* Mobile Button */}
-        <Menu className="lg:hidden " onClick={() => setOpenMobile(true)} />
+        <Menu className="lg:hidden" onClick={() => setOpenMobile(true)} />
       </div>
 
       {/* MOBILE MENU OVERLAY */}
       <div
-        className={`fixed inset-0 bg-black/40 z-40 transition-all duration-300 ${
-          openMobile ? 'opacity-100 visible' : 'opacity-0 invisible'
+        className={`fixed inset-0 z-40 bg-black/40 transition-all duration-300 ${
+          openMobile ? 'visible opacity-100' : 'invisible opacity-0'
         }`}
         onClick={() => setOpenMobile(false)}
       />
 
       {/* MOBILE SIDEBAR */}
       <div
-        className={`
-          fixed top-0 left-0 h-full w-80 bg-white shadow-xl z-50 p-4 overflow-y-auto
-          transition-transform duration-300
-          ${openMobile ? 'translate-x-0' : '-translate-x-full'}
-        `}
+        className={`fixed top-0 left-0 z-50 h-full w-80 overflow-y-auto bg-white p-4 shadow-xl transition-transform duration-300 ${openMobile ? 'translate-x-0' : '-translate-x-full'} `}
       >
-        <div className="flex justify-between items-center mb-4">
+        <div className="mb-4 flex items-center justify-between">
           <Logo />
           <X onClick={() => setOpenMobile(false)} />
         </div>

@@ -12,21 +12,19 @@ export const metadata = {
 export default function DashboardLayout({ children }) {
   return (
     <main>
-      <Providers>
-        <SidebarProvider>
-          <AppSidebar />
-          <SidebarTrigger />
-          <section className="w-full">
-            <div className="container mx-auto">
-              <AppHeader />
-              <div className="py-6">
-                <AppBreadcrumb />
-                {children}
-              </div>
+      <SidebarProvider>
+        <AppSidebar />
+        <SidebarTrigger />
+        <section className="w-full">
+          <div className="container mx-auto">
+            <AppHeader />
+            <div className="py-6">
+              <AppBreadcrumb />
+              {children}
             </div>
-          </section>
-        </SidebarProvider>
-      </Providers>
+          </div>
+        </section>
+      </SidebarProvider>
     </main>
   )
 }

@@ -37,7 +37,7 @@ export default function UploadImages({
 
       // Convert string → object { url, order, name }
       setExistingImages(
-        (existing?.data?.images || []).map((img, i) =>
+        (existing?.data || []).map((img, i) =>
           typeof img === 'string' ? { url: img, order: i + 1, name: '' } : img,
         ),
       )
@@ -153,7 +153,7 @@ export default function UploadImages({
           title,
           desc,
           slug: `${type}-module`,
-          data: { images: finalImages },
+          data: finalImages,
         }),
       })
       setContentRecord(created)
@@ -162,7 +162,7 @@ export default function UploadImages({
     else {
       const updated = await apiFetch(`/api/contents/${contentRecord._id}`, {
         method: 'PUT',
-        body: JSON.stringify({ title, desc, data: { images: finalImages } }),
+        body: JSON.stringify({ title, desc, data: finalImages }),
       })
       setContentRecord(updated)
     }
