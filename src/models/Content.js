@@ -41,6 +41,7 @@ const ContentSchema = new Schema(
       default: null,
     },
     title: { type: String, default: null },
+    desc: { type: String, default: null },
     data: { type: Schema.Types.Mixed, default: {} },
     sortOrder: { type: Number, default: 0 },
     published: { type: Boolean, default: true },

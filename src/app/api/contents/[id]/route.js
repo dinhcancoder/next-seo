@@ -19,7 +19,6 @@ export async function PUT(req, { params }) {
   await connectDB()
   const { id } = await params
 
-  console.log(id)
   const body = await req.json()
 
   const updated = await Content.findByIdAndUpdate(id, body, { new: true })
