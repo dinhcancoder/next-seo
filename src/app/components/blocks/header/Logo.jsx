@@ -1,16 +1,20 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { cn } from '~/lib/utils'
 
-export default function Logo() {
+export default function Logo({ logoSrc, className }) {
   return (
     <Link href="/" className="flex items-center">
       <Image
-        src="/your-logo.png"
+        src={logoSrc || '/your-logo.webp'}
         alt="Your Logo"
-        width={175} // bạn đổi size tùy ý
-        height={175}
-        priority // load nhanh trên header
-        className="object-contain"
+        width={0}
+        height={0}
+        sizes="100vw"
+        className={cn('h-9 w-auto md:h-11', className)}
+        priority
       />
     </Link>
   )

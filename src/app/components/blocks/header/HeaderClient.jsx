@@ -1,14 +1,12 @@
 'use client'
 import { useEffect, useState } from 'react'
-import Link from 'next/link'
 import MenuItem from './MenuItem'
 import MobileMenuItem from './MobileMenuItem'
 import { Menu, X } from 'lucide-react'
-import Image from 'next/image'
 import Logo from './Logo'
 import HeaderRight from './HeaderRight'
 
-export default function HeaderClient({ menu }) {
+export default function HeaderClient({ menu, logoSrc }) {
   const [openMobile, setOpenMobile] = useState(false)
 
   useEffect(() => {
@@ -29,7 +27,7 @@ export default function HeaderClient({ menu }) {
     <header className="flex h-[65px] w-full items-center bg-white shadow-sm md:h-[75px]">
       <div className="container mx-auto flex items-center justify-between py-2 max-lg:px-3">
         {/* Logo */}
-        <Logo />
+        <Logo logoSrc={logoSrc} />
 
         {/* Desktop Menu */}
         <nav className="hidden gap-6 lg:flex">

@@ -24,7 +24,10 @@ export const menuGroups = [
         title: 'Cài đặt',
         url: '#',
         icon: Settings,
-        children: [{ title: 'Menu', url: '/admin/menu' }],
+        children: [
+          { title: 'Logo', url: '/admin/logo' },
+          { title: 'Menu', url: '/admin/menu' },
+        ],
       },
     ],
   },

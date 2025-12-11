@@ -2,14 +2,17 @@
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { useState } from 'react'
-import { toast, ToastContainer } from 'react-toastify'
+import { useEffect, useState } from 'react'
+import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import GlobalLoading from './components/GlobalLoading'
+
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
+
+import '@fancyapps/ui/dist/fancybox/fancybox.css'
 
 export default function Providers({ children }) {
   const [queryClient] = useState(
@@ -23,6 +26,20 @@ export default function Providers({ children }) {
         },
       }),
   )
+
+  // useEffect(() => {
+  //   let Fancybox
+
+  //   import('@fancyapps/ui').then((module) => {
+  //     Fancybox = module.Fancybox
+
+  //     Fancybox.bind("[data-fancybox='gallery']", {})
+
+  //     return () => {
+  //       Fancybox?.destroy()
+  //     }
+  //   })
+  // }, [])
 
   return (
     <QueryClientProvider client={queryClient}>

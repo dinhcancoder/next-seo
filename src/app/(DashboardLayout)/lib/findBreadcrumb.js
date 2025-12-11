@@ -1,4 +1,4 @@
-import { menuGroups } from '../../configs/menu'
+import { menuGroups } from '../configs/menu'
 
 export function findBreadcrumb(pathname) {
   const result = ['Admin Panel']

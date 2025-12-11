@@ -1,23 +1,16 @@
 import { NextResponse } from 'next/server'
 import connectDB from '~/lib/db'
-import { Content } from '~/models/Content'
+import Content from '~/models/Content'
+import { contentService } from '~/services/contentService'
 
 export async function GET(req) {
-  await connectDB()
-
   const { searchParams } = new URL(req.url)
   const type = searchParams.get('type')
   const parentId = searchParams.get('parentId')
 
-  const filter = {}
-  if (type) filter.type = type
-  if (parentId) filter.parentId = parentId
+  const result = await contentService.findAll({ type, parentId })
 
-  const data = await Content.find(filter)
-    .sort({ sortOrder: 1 })
-    .populate('children')
-
-  return NextResponse.json(data)
+  return NextResponse.json(result)
 }
 
 export async function POST(req) {

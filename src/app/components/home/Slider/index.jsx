@@ -1,14 +1,9 @@
-import { apiFetch } from '~/lib/api-fetch'
+import { contentService } from '~/services/contentService'
 import SliderClient from './components/SliderClient'
 
-const fetchSlider = async () => {
-  const data = await apiFetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/api/contents?type=slider`,
-  )
-  return data[0] ?? {}
-}
-
 export default async function Slider() {
-  const slider = await fetchSlider()
+  const sliders = await contentService.findAll({ type: 'slider' })
+  const slider = structuredClone(sliders[0])
+
   return <SliderClient slider={slider} />
 }

@@ -2,6 +2,8 @@
 
 import CustomSwiper from '~/app/components/customs/CustomSwiper'
 import EmptySlider from './EmptySlider'
+import Image from 'next/image'
+import { openLightbox } from '~/utils/openLightbox'
 
 export default function SliderClient({ slider }) {
   const images = slider.data ?? []
@@ -10,14 +12,22 @@ export default function SliderClient({ slider }) {
     <CustomSwiper
       className="h-[280px] md:h-[425px] lg:h-[calc(100vh-75px)]"
       items={images}
-      renderItem={(img) => (
-        <img
-          src={img.url}
-          className="h-full w-full object-cover"
-          alt={img.name}
-        />
+      renderItem={(img, index) => (
+        <div
+          className="relative h-full w-full"
+          onClick={() => openLightbox(images, index)}
+        >
+          <Image
+            src={img.url}
+            alt={img.name}
+            fill
+            priority={index === 0}
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
       )}
-      autoplay={true}
+      autoplay={typeof window !== 'undefined' && window.innerWidth > 768}
     />
   ) : (
     <EmptySlider />

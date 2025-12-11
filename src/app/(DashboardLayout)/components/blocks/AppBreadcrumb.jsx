@@ -10,7 +10,7 @@ import {
 } from '~/components/ui/breadcrumb'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { findBreadcrumb } from '../../admin/lib/findBreadcrumb'
+import { findBreadcrumb } from '../../lib/findBreadcrumb'
 
 export function AppBreadcrumb() {
   const pathname = usePathname()
