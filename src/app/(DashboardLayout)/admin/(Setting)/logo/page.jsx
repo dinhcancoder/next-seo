@@ -127,7 +127,6 @@ export default function LogoPage() {
     // (xóa thật sẽ thực hiện ở handleSave)
   }
 
-  // giữ nguyên như bạn yêu cầu
   const LogoUploadBlock = ({ label, type }) => (
     <div className="space-y-2">
       <span className="flex items-center gap-2.5 text-sm font-semibold text-gray-700">

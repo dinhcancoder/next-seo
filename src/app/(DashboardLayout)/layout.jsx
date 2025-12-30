@@ -1,17 +1,17 @@
 import { SidebarProvider, SidebarTrigger } from '~/components/ui/sidebar'
-import Providers from '../providers'
 import { AppSidebar } from './components/blocks/AppSidebar'
 import AppHeader from './components/blocks/AppHeader'
 import { AppBreadcrumb } from './components/blocks/AppBreadcrumb'
+import AuthAdminProvider from './AuthAdminProvider'
 
 export const metadata = {
   title: 'Admin Panel',
   description: 'Admin Panel',
 }
 
-export default function DashboardLayout({ children }) {
+export default async function DashboardLayout({ children }) {
   return (
-    <main>
+    <AuthAdminProvider>
       <SidebarProvider>
         <AppSidebar />
         <SidebarTrigger />
@@ -25,6 +25,6 @@ export default function DashboardLayout({ children }) {
           </div>
         </section>
       </SidebarProvider>
-    </main>
+    </AuthAdminProvider>
   )
 }

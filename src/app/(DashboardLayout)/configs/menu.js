@@ -15,9 +15,9 @@ export const menuGroups = [
         url: '#',
         icon: Inbox,
         children: [
-          { title: 'Giới thiệu chung', url: '/admin/info' },
-          { title: 'Slider nổi bật', url: '/admin/slider' },
-          { title: 'Ý kiến khách hàng', url: '/admin/customer-comment' },
+          { title: 'Giới thiệu chung', url: '/admin/general-introduction' },
+          { title: 'Slider nổi bật', url: '/admin/sliders' },
+          { title: 'Ý kiến khách hàng', url: '/admin/customer-reviews' },
         ],
       },
       {
@@ -27,6 +27,7 @@ export const menuGroups = [
         children: [
           { title: 'Logo', url: '/admin/logo' },
           { title: 'Menu', url: '/admin/menu' },
+          { title: 'Tài khoản', url: '/admin/account' },
         ],
       },
     ],

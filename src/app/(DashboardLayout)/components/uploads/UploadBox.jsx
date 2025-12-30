@@ -9,6 +9,7 @@ export default function UploadBox({
   onFilesSelected,
   accept = { 'image/*': [] },
   multiple = true,
+  allExtension = false,
 }) {
   const [showAll, setShowAll] = useState(false)
 
@@ -21,9 +22,11 @@ export default function UploadBox({
     onFilesSelected(acceptedFiles)
   }
 
+  const dropzoneAccept = allExtension ? undefined : accept
+
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     multiple: multiple,
-    accept,
+    accept: dropzoneAccept,
     maxSize,
     onDrop: handleDrop,
   })
